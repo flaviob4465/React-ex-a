@@ -1,21 +1,24 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchUsers, deleteUser } from './userSlice'
+// TODO: import { fetchUsers, deleteUser } from './userSlice'
 
 export default function UserList() {
+  // TODO — useDispatch e useSelector para state.users (entities, loading, error)
   const dispatch = useDispatch()
   const { entities, loading, error } = useSelector((state) => state.users)
 
+  // TODO — Ao montar: dispatch(fetchUsers()). Dependência: [dispatch]
   useEffect(() => {
-    dispatch(fetchUsers())
+    // dispatch(fetchUsers())
   }, [dispatch])
 
   const handleRetry = () => {
-    dispatch(fetchUsers())
+    // dispatch(fetchUsers())
   }
 
   const handleRemove = (id) => {
-    dispatch(deleteUser(id))
+    // dispatch(deleteUser(id))
+    void id
   }
 
   const isLoading =

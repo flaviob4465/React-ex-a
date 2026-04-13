@@ -2,16 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const USERS_API = 'https://jsonplaceholder.typicode.com/users'
 
+// TODO 1 — Async thunk: GET a USERS_API; em sucesso devolve o JSON; em !res.ok ou catch usa rejectWithValue(mensagem).
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async (_, { rejectWithValue }) => {
-  try {
-    const res = await fetch(USERS_API)
-    if (!res.ok) {
-      return rejectWithValue(`Erro ${res.status}`)
-    }
-    return await res.json()
-  } catch (e) {
-    return rejectWithValue(e.message ?? 'Falha na rede')
-  }
+  return rejectWithValue('Substitui isto pelo fetch real (ver ENUNCIADO.md)')
 })
 
 const initialState = {
@@ -24,24 +17,18 @@ const userSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
+    // TODO 2 — Reducer síncrono: remove de state.entities o utilizador com id === action.payload (só estado local).
     deleteUser: (state, action) => {
       const id = action.payload
-      state.entities = state.entities.filter((u) => u.id !== id)
+      void id
+      // state.entities = state.entities.filter((u) => u.id !== id)
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchUsers.pending, (state) => {
-      state.loading = 'pending'
-      state.error = null
-    })
-    builder.addCase(fetchUsers.fulfilled, (state, action) => {
-      state.loading = 'succeeded'
-      state.entities = action.payload
-    })
-    builder.addCase(fetchUsers.rejected, (state, action) => {
-      state.loading = 'failed'
-      state.error = action.payload ?? action.error.message ?? 'Erro desconhecido'
-    })
+    // TODO 3 — addCase(fetchUsers.pending): loading = 'pending', error = null
+    // TODO 4 — addCase(fetchUsers.fulfilled): loading = 'succeeded', entities = action.payload
+    // TODO 5 — addCase(fetchUsers.rejected): loading = 'failed', error = action.payload ?? action.error.message ?? ...
+    void builder
   },
 })
 

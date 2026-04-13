@@ -29,10 +29,14 @@ function BoolBadge({ value }) {
 export default function SystemMonitor() {
   const { entities, loading, error } = useSelector((state) => state.users)
 
-  const thrFetch = loading !== 'idle'
-  const uiRender = entities.length > 0
-  const redSync = entities.length < 10
-  const errHand = loading === 'failed' || error != null
+  // TODO — thrFetch: loading !== 'idle' | uiRender: entities.length > 0 | redSync: entities.length < 10 | errHand: loading==='failed' || error != null
+  void entities
+  void loading
+  void error
+  const thrFetch = false
+  const uiRender = false
+  const redSync = false
+  const errHand = false
 
   return (
     <aside
