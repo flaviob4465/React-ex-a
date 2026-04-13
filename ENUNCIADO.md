@@ -14,7 +14,7 @@ npm install
 npm run dev
 ```
 
-O projeto deve compilar; até implementares os `// TODO`, a app pode mostrar erros em runtime ou estados incompletos — é esperado.
+O projeto deve compilar. O **`main.jsx` já inclui `Provider` e `store`** para a app arrancar com contexto Redux (sem isto, `useSelector` rebenta e o ecrã fica em branco). O foco do exercício está no **slice**, **`UserList`** e **`SystemMonitor`**. Até implementares os `// TODO` restantes, vês sobretudo loading infinito ou erro — é esperado.
 
 ## API
 
@@ -44,12 +44,11 @@ O estado inicial deve seguir este formato:
 
 ### 2. `src/store.js`
 
-- Garante `configureStore` com reducer registado como **`users`** (nome da chave na store), importando o reducer do `userSlice` (ex.: `usersReducer`).
+- O ficheiro já está quase completo: confirma que o reducer está registado na chave **`users`** (tem de corresponder a `state.users` no `useSelector`).
 
 ### 3. `src/main.jsx`
 
-- Importa **`Provider`** de `react-redux` e a **`store`** de `./store.js`.
-- Envolve `<App />` com `<Provider store={store}>`.
+- **Já está configurado** com `Provider` e `store` (lê o código e garante que percebes o papel do `Provider`).
 
 ### 4. `src/UserList.jsx`
 
