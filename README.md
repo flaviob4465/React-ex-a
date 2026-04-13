@@ -26,6 +26,18 @@ Na raiz do projeto, lê **ENUNCIADO.md** e implementa os passos indicados nos co
 - Correção: comparar com `main` ou fazer `git diff main..starter` para ver o que falta implementar.
 - Node.js recomendado: **20+**.
 
+## Publicar no GitHub (docente)
+
+Na primeira vez, cria o repositório vazio no GitHub e:
+
+```bash
+git remote add origin https://github.com/<utilizador>/<repo>.git
+git push -u origin main
+git push -u origin starter
+```
+
+Os alunos clonam e fazem `git checkout starter`.
+
 ## Scripts
 
 - `npm run dev` — servidor de desenvolvimento
